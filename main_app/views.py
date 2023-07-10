@@ -4,9 +4,9 @@ from rest_framework.response import Response
 
 # Create your views here.
 
-class HomeView(APIView):
+class Home(APIView):
     def get(self, request):
         data = {
-            "Hello World"
+            "message": "Hello World"
         }
         return Response(data)
