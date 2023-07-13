@@ -3,7 +3,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import MenuItem
+from .models import Cocktail
 from .serializers import MenuItemSerializer
+from .serializers import CocktailSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
@@ -29,6 +31,10 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer  
 
+class CocktailViewSet(viewsets.ModelViewSet):
+    permission_classes = [AllowAny]
+    queryset = Cocktail.objects.all()
+    serializer_class = CocktailSerializer
 
 # class MenuItemList(APIView):
     

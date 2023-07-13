@@ -9,3 +9,8 @@ class MenuItem(models.Model):
     course = models.CharField(max_length=50)
     image_url = models.URLField(blank=True)
 
+class Cocktail(models.Model):
+    name = models.CharField(max_length=100)
+    ingredients = models.CharField(max_length=250)
+    description = models.TextField()
+    image_url = models.URLField(blank=True)
