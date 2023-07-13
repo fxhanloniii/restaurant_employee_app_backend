@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import Group
 from rest_framework.permissions import AllowAny
+from rest_framework import viewsets
 
 # Create your views here.
 
@@ -19,51 +20,60 @@ class Home(APIView):
             "message": "Hello World"
         }
         return Response(data)
-    
-class MenuItemList(APIView):
-    
+
+
+# Shout out to Beni for helping me with this
+
+class MenuItemViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer  
 
-    def get(self, request):
-        menu_items = MenuItem.objects.all()
-        serializer = MenuItemSerializer(menu_items, many=True)
-        return Response(serializer.data)
+
+# class MenuItemList(APIView):
+    
+#     permission_classes = [AllowAny]
+
+#     def get(self, request):
+#         menu_items = MenuItem.objects.all()
+#         serializer = MenuItemSerializer(menu_items, many=True)
+#         return Response(serializer.data)
     
     
-    def post(self, request):
-        serializer = MenuItemSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def post(self, request):
+#         serializer = MenuItemSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class MenuItemDetail(APIView):
-    # permission_classes = [IsAuthenticated]
-    permission_classes = [AllowAny]
-    
-    def get_object(self, pk):
-        try:
-            return MenuItem.objects.get(pk=pk)
-        except MenuItem.DoesNotExist:
-            raise status.HTTP_404_NOT_FOUND
+# class MenuItemDetail(APIView):
+#     # permission_classes = [IsAuthenticated]
+#     permission_classes = [AllowAny]
 
-    def get(self, request, pk):
-        menu_item = self.get_object(pk)
-        serializer = MenuItemSerializer(menu_item)
-        return Response(serializer.data)
+#     def get_object(self, pk):
+#         try:
+#             return MenuItem.objects.get(pk=pk)
+#         except MenuItem.DoesNotExist:
+#             raise status.HTTP_404_NOT_FOUND
 
-    def put(self, request, pk):
-        menu_item = self.get_object(pk)
-        serializer = MenuItemSerializer(menu_item, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#     def get(self, request, pk):
+#         menu_item = self.get_object(pk)
+#         serializer = MenuItemSerializer(menu_item)
+#         return Response(serializer.data)
 
-    def delete(self, request, pk):
-        menu_item = self.get_object(pk)
-        menu_item.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+#     def put(self, request, pk):
+#         menu_item = self.get_object(pk)
+#         serializer = MenuItemSerializer(menu_item, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#     def delete(self, request, pk):
+#         menu_item = self.get_object(pk)
+#         menu_item.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
     
 class Signup(APIView):
 
