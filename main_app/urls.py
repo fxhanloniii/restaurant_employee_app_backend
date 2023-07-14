@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register(r'menu-items', views.MenuItemViewSet)
-
+router.register(r'cocktails', views.CocktailViewSet)
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),

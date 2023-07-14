@@ -12,3 +12,7 @@ class CocktailSerializer(serializers.ModelSerializer):
         model = Cocktail
         fields = "__all__"
 
+class WineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Wine
+        fields = '__all__'
