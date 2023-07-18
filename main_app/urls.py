@@ -9,6 +9,9 @@ router = DefaultRouter()
 router.register(r'menu-items', views.MenuItemViewSet)
 router.register(r'cocktails', views.CocktailViewSet)
 router.register(r'wines', views.WineViewSet)
+router.register(r'messages', views.MessageViewSet)
+router.register(r'out-of-stock-items', views.OutOfStockItemViewSet)
+
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
