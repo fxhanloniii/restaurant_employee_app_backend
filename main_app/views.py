@@ -15,6 +15,14 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import Group
 from rest_framework.permissions import AllowAny
 from rest_framework import viewsets
+# image upload imports
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
+import os
+
+from cloudinary.uploader import upload
+from rest_framework.parsers import MultiPartParser, FormParser
 
 # Create your views here.
 
@@ -31,7 +39,7 @@ class Home(APIView):
 class MenuItemViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
     queryset = MenuItem.objects.all()
-    serializer_class = MenuItemSerializer  
+    serializer_class = MenuItemSerializer
 
 class CocktailViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
@@ -43,6 +51,7 @@ class WineViewSet(viewsets.ModelViewSet):
     queryset = Wine.objects.all()
     serializer_class = WineSerializer
 
+    
 # class MenuItemList(APIView):
     
 #     permission_classes = [AllowAny]

@@ -18,4 +18,6 @@ class Cocktail(models.Model):
 class Wine(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
+    region = models.CharField(max_length=100, blank=True)
+    year = models.PositiveIntegerField(blank=True, null=True)
     image_url = models.URLField(blank=True)

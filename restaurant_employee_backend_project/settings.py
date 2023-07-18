@@ -11,7 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -142,6 +146,15 @@ REST_FRAMEWORK = {
     ],
 }
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+cloudinary.config( 
+  cloud_name = "dph0opk9j", 
+  api_key = "458179111594129", 
+  api_secret = "pKtRoroqAR5nC0bjq6JVlrLv9T8" 
+)
 
 # Uselful Links I Used For This Project
 # https://www.geeksforgeeks.org/creating-custom-user-model-using-abstractuser-in-django_restframework/
