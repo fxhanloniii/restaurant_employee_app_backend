@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: mysite
-    startCommand: "gunicorn restaurant_employee_backend_project.wsgi:application --bind 0.0.0.0:$PORT"
-    envVars:
-      - key: DATABASE_URL
-        fromEnv: DATABASE_URL
-      - key: SECRET_KEY
-        generateValue: true
