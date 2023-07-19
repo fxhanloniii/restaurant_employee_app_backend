@@ -83,12 +83,25 @@ WSGI_APPLICATION = 'restaurant_employee_backend_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '71above',
+        'NAME': 'neondb',
+        'USER': 'fxhanloniii',
+        'PASSWORD': 'apycbU2WKDm5',
+        'HOST': 'ep-lucky-bonus-909802.us-east-2.aws.neon.tech',
+        'PORT': '5432',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': '71above',
+#     }
+# }
+
+# postgres://fxhanloniii:apycbU2WKDm5@ep-lucky-bonus-909802.us-east-2.aws.neon.tech/neondb
 
 
 # Password validation
