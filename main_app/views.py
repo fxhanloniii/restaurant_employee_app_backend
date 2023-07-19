@@ -23,7 +23,7 @@ from django.core.files.base import ContentFile
 from django.conf import settings
 import os
 
-from cloudinary.uploader import upload
+
 from rest_framework.parsers import MultiPartParser, FormParser
 
 # Create your views here.
