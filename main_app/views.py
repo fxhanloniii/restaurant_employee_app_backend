@@ -14,7 +14,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from django.contrib.auth.models import Group
+
 from rest_framework.permissions import AllowAny
 from rest_framework import viewsets
 # image upload imports
@@ -24,7 +24,7 @@ from django.conf import settings
 import os
 
 
-from rest_framework.parsers import MultiPartParser, FormParser
+
 
 # Create your views here.
 
