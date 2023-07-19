@@ -24,11 +24,11 @@ class Wine(models.Model):
     image_url = models.URLField(blank=True)
 
 class Message(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=255)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
 class OutOfStockItem(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=255)
     name = models.CharField(max_length=100)
     timestamp = models.DateTimeField(auto_now_add=True)
