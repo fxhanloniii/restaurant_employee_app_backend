@@ -101,7 +101,7 @@ DATABASES = {
 #     }
 # }
 
-# postgres://fxhanloniii:apycbU2WKDm5@ep-lucky-bonus-909802.us-east-2.aws.neon.tech/neondb
+
 
 
 # Password validation
